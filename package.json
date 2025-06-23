@@ -1,0 +1,33 @@
+{
+  "name": "PlayWrightAutomation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js --require stepdefinitions features --format progress",
+    "test:endToEndFlow": "cucumber-js --require stepdefinitions --require hooks.js features --tags '@endToEndTesting' --format progress",
+    "test:testsingleflow": "cucumber-js --require stepdefinitions features --tags '@testsingleflow' --format progress",
+    "api": "npx playwright test apitests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.9.0",
+    "@faker-js/faker": "^8.4.1",
+    "@playwright/test": "^1.52.0",
+    "allure-commandline": "^2.27.0",
+    "allure-cucumberjs": "^2.15.1",
+    "allure-playwright": "^2.15.0",
+    "concurrently": "^8.2.2",
+    "cucumber": "^6.0.7",
+    "jest-allure": "^0.1.3",
+    "monocart-reporter": "^2.2.3"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "dotenv": "^16.5.0",
+    "faker": "^6.6.6",
+    "mongodb": "^6.4.0"
+  }
+}

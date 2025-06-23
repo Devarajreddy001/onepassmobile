@@ -1,0 +1,12 @@
+{
+    "user": {
+        "Mobilenumber": "999999999"
+        
+    },
+    "Mongo_db": {
+        "connectionString":"mongodb+srv://dev:v7kWCQ8fElqwzz"
+        
+        
+    }
+    
+}

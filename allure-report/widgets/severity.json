@@ -1,0 +1,1 @@
+[{"uid":"302b6568a303a7ba","name":"verify Network status by passing some value","time":{"start":1750082179434,"stop":1750082201520,"duration":22086},"status":"passed","severity":"normal"},{"uid":"564a9586955f910a","name":"verify Network coverage by passing some value","time":{"start":1750082152038,"stop":1750082179433,"duration":27395},"status":"failed","severity":"normal"}]

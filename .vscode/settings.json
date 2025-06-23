@@ -1,0 +1,16 @@
+{
+    "cucumber.features": [
+
+        "Features.feature"
+       
+    ],
+    "cucumber.glue": [
+
+        
+      "Stepdefinitions.js"
+    ],
+    "cucumber.parameterTypes": [
+        
+    ],
+    "liveServer.settings.port": 5501
+}

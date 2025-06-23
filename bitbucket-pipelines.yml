@@ -1,0 +1,41 @@
+pipelines:
+  branches:
+    master:
+      - step:
+          name: Run automation scripts
+          image: ubuntu:22.04
+          script:
+            - apt update
+            - apt remove -y nodejs
+            - apt install -y curl
+            - apt install -y wget
+            - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+            - source ~/.bashrc
+            - nvm install --lts
+            - node -v
+            - apt install -y npm
+            - npm install uuid@latest
+            - npm install
+            - npx playwright install-deps
+            - npx playwright install
+            - timeout 15m npm run test || true
+            - apt install -y default-jre
+            - wget https://github.com/allure-framework/allure2/releases/download/2.18.1/allure_2.18.1-1_all.deb
+            - dpkg -i allure_2.18.1-1_all.deb
+            - allure --version
+            - allure generate allure-results -o allure-report --clean
+            - apt-get update && apt install git -y
+            - git clone "url"
+            - cp -r qa-report/.git allure-report/
+            - cd allure-report
+            - git config user.email "test@gmail.com.com"
+            - git config user.name "test"
+            - git add .
+            - git commit -m "Add allure report"
+            - git push -u origin main
+
+          artifacts:
+             - allure-report/**
+      
+    
+      

@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"f582483a0adb3a992624dcda16a4a3b9","name":"verify Network coverage by passing some value","statistic":{"failed":1,"broken":0,"skipped":0,"passed":0,"unknown":0,"total":1}},{"uid":"f9c7adee702f7e27dd99209c1cf3673a","name":"verify Network status by passing some value","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}

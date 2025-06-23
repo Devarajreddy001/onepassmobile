@@ -1,0 +1,11 @@
+# .DS_Store
+node_modules/*
+# .DS_Store
+# reports/*
+# playwright-report/*
+allure-report/data/*
+allure-results/*
+screenshots
+
+
+
