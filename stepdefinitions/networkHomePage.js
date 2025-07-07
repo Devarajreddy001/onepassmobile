@@ -22,14 +22,18 @@ console.log(url)
 
 //defining the values of the data used in the onboarding flow
 //UserCollection
-let actualUserFirstName = 'test';
+
 
 
 
 After(async function (testCase) {
    //The logic for taking a screenshot on failure is defined in hooks.js
-   
+    await closeBrowser()
    });
+
+
+   
+
 Given('user is on the homepage', async () =>
 
 {   
@@ -70,7 +74,7 @@ When('enters the text in the search', async ()=>
    const networkHomeObject= new NetworkHome(page);
    const frame = await networkHomeObject.getIframe();
    const messageLocator = frame.locator(networkHomeObject.COVERAGE_MESSAGE_SELECTOR);
-   await expect(messageLocator).toContainText("4G mobile coverage is available here. To use 4G, you'll need a 3G-ready phone.");
+   await expect(messageLocator).toContainText("4G mobile coverage is available here. To use 4G, you'll need a 4G-ready phone.");
    await closeBrowser()
   
  });
@@ -90,10 +94,10 @@ When('enters the text in the search', async ()=>
     const networkHomeObject= new NetworkHome(page);
     const frame = await networkHomeObject.getIframe();
     const messageLocator1 = frame.locator(networkHomeObject.STATUS_MESSAGE_SELECTOR1);
-    await expect(messageLocator1).toContainText("We haven't had any reported mobile network issues in this area.");
+    await expect(messageLocator1).toContainText("We are currently completing some planned work on a mobile tower in this area. ");
     const messageLocator2 = frame.locator(networkHomeObject.STATUS_MESSAGE_SELECTOR2);
-    await expect(messageLocator2).toContainText("We'll let you know here, when there is an issue with the mobile network, or we are working on any mobile towers near you.");
-    await closeBrowser()
+    await expect.soft(messageLocator2).toContainText("Work like this helps us improve your Optus network experience. Until 00:00 AEST on 12 July, your mobile service may experience some issues.");
+   
    
   });
  

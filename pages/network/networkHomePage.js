@@ -14,8 +14,10 @@ exports.NetworkHome = class NetworkHome {
 
     // Store iframe message locator as a string
     this.COVERAGE_MESSAGE_SELECTOR = "//div[contains(@class, 'MuiTypography-body2') and contains(text(),'4G mobile coverage')]";
-    this.STATUS_MESSAGE_SELECTOR1 = "//div[@class='MuiTypography-root MuiTypography-body2 MuiTypography-alignLeft jss19 jss21 css-q74a2t']"
-    this.STATUS_MESSAGE_SELECTOR2= "//div[@class='MuiTypography-root MuiTypography-body2 MuiTypography-alignLeft jss20 css-q74a2t']"
+    this.STATUS_MESSAGE_SELECTOR1 = "//*[@class='MuiTypography-root MuiTypography-body2 MuiTypography-alignLeft css-1lkc5x3']";
+    this.STATUS_MESSAGE_SELECTOR2 = "//*[@class='MuiTypography-root MuiTypography-body2 MuiTypography-alignLeft css-c0vxkn']";
+
+
 
   }
 
