@@ -93,3 +93,35 @@ npm run test
  npx cucumber-js <relative-path> --require stepdefinitions
  npx cucumber-js features/01Sign_in/login.feature --require stepdefinitions
  ```
+
+- To inspect locators and generate code
+ npx playwright codegen
+
+
+  ‘
+
+Update this in doting file
+Set the environment mode (production or development)
+NODE_ENV=development
+
+If you set the development it will  use test environment url
+
+If this is the full url https://reqres.in/api/users use till here only ttps://reqres.in"
+
+# Test environment
+DEV_A_SERVICE_BASE_URL="https://reqres.in"
+
+If you set production it will use production url
+# Production environment
+LIVE_A_SERVICE_BASE_URL="https://reqres.inj"
+
+
+
+1. Modify params in endpoints file
+
+const aServiceEndpoints = {
+    api1: { method: 'POST', url: `${aServiceBaseUrl}/api/users` },
+
+
+- Import the aserviceendpoints in test file 
+add the test file and modify url headers
