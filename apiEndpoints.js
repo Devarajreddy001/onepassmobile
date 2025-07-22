@@ -11,12 +11,12 @@ const userId = process.env.user === 'dev' ? process.env.devUserId : process.env.
 // const newPhoneNumber = "6736377378";
 // const newEmail = "testing13555@yopmail.com";
 const aServiceEndpoints = {
-    api1: { method: 'POST', url: `${aServiceBaseUrl}/test/test` },
+    api1: { method: 'POST', url: `${aServiceBaseUrl}/api/users` },
     api2: { method: 'GET', url: `${aServiceBaseUrl}/test` },
     api3: { method: 'POST', url: `${aServiceBaseUrl}/test` },
     api4: { method: 'GET', url: `${aServiceBaseUrl}/test` },
     api5: { method: 'GET', url: `${aServiceBaseUrl}/test` },
-    api6: { method: 'POST', url: `${authServiceBaseUrl}/test` },
+    api6: { method: 'POST', url: `${aServiceBaseUrl}/test`},
     api7: { method: 'GET', url: `${aServiceBaseUrl}/test` },
     api8: {method:'DELETE',url:`${aServiceBaseUrl}/test`}
 };
@@ -25,4 +25,4 @@ const aServiceEndpoints = {
 
 
 
-module.exports = { authServiceEndpoints };
+module.exports = { aServiceEndpoints };
