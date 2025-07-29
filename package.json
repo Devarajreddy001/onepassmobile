@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js --require stepdefinitions features --format progress",
+    "test": "cucumber-js --require stepdefinitions features",
     "test:endToEndFlow": "cucumber-js --require stepdefinitions --require hooks.js features --tags '@endToEndTesting' --format progress",
     "test:testsingleflow": "cucumber-js --require stepdefinitions features --tags '@testsingleflow' --format progress",
     "api": "npx playwright test apitests"
