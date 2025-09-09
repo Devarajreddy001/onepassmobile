@@ -6,6 +6,7 @@ const config = require('../playwright.config');
 let browser;
 
 const url = process.env.applicationUrl;
+const { Login } = require('../pages/network/loginpage');
 
 
 async function setupBrowser() {
@@ -28,34 +29,25 @@ async function closeBrowser() {
 }
 
 
-// async function globalLogin() {
-//   await setupBrowser();
-//   await setupPage();
-//   await page.goto(url);
-
-//   const loginObject = new login(page);
-//   await loginObject.clickSingin1();
-//   await loginObject.clickPhonenumber();
-//   await page.waitForTimeout(3000);
-//   await loginObject.enterPhonenumber();
-//   await loginObject.clickSignin2();
-//   await page.waitForTimeout(5000);
-//   const latestOtp = await connectToDatabase(randomMobileNumber);
-//   await loginObject.enterOtp(latestOtp);
-//   await page.waitForTimeout(1000);
-//   await loginObject.clickLogin();
-//   const visible = await loginObject.closeAdvertisementPopUpIntermittent.isVisible();
-//   if(visible){
-//     await loginObject.closeAdvertisement();
-//   }
-//   await loginObject.clickDownloadCrossIcon();
+async function globalLogin() {
+  await setupBrowser();
+  await setupPage();
+  const loginObject = new Login(page);
+  await page.goto(url);
+  await loginObject.clickLoginButton();
+  loginObject.enterEmailLogin("test3@yopmail.com")
+  await page.waitForTimeout(2000);
+  await loginObject.enterpasswordLogin("Aa@devraj22")
+  await page.waitForTimeout(2000);
+  await loginObject.clickLoginButtonlogin()
 
 
-// }
+}
 
 module.exports = {
   setupBrowser,
   setupPage,
   closeBrowser,
+  globalLogin
   
 };
