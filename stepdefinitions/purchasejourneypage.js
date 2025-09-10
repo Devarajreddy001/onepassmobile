@@ -48,6 +48,7 @@ When('user clicks on buy a service button', async () => {
 When('clicks on the more info', async () => {
     const purchaseObject= new Purchasejourney(page);
    await purchaseObject.clickMoreInfo()
+   await page.waitForTimeout(2000);
  
 
 });
@@ -55,14 +56,31 @@ When('clicks on the more info', async () => {
 When('clicks on buy now', async () => {
     const purchaseObject= new Purchasejourney(page);
    await purchaseObject.clickBuyNow()
+   await page.waitForTimeout(2000);
 });
 
 When('clicks on continues', async () => {
     const purchaseObject= new Purchasejourney(page);
    await purchaseObject.clickContinue()
-   await purchaseObject.clickContinue()
+   await purchaseObject.clickContinueOnDeliveryMethodPage()
+   await page.waitForTimeout(2000);
+});
+
+When('user enters payment method information', async () => {
+    const purchaseObject= new Purchasejourney(page);
+   await purchaseObject.enterNickName();
+   await purchaseObject.enterCardHolderName();
+   await purchaseObject.enterCardNumber();
+   await purchaseObject.enterCardExpiry();
+   await purchaseObject.enterCardCVV();
+
+   await page.waitForTimeout(2000);
+   await purchaseObject.clickContinueOnPaymentMethodPage();
 });
 
 Then('user should be able to see the address screen', async function () {
     console.log("pass")
 });
+
+
+

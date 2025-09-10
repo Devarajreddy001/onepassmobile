@@ -7,4 +7,5 @@ Feature: Verify purchase journey
     And clicks on the more info
     And clicks on buy now 
     And clicks on continues
+    And user enters payment method information
     Then user should be able to see the address screen

@@ -10,9 +10,13 @@ exports.Purchasejourney = class Purchasejourney {
     this.BUYNOW = page.locator("//*[text()='BUY NOW']");
     this.STREETADDRESS = page.locator("//*[@placeholder='Type your address']")
     this.STREETDROPDOWN= page.locator("//*[@class='p-6 pb-6 cursor-pointer transition duration-200 ease-in-out hover:bg-spc-web-mid-2 address']")
-    this.CARDNICKNAME=page.locator("Card Nickname")
+    this.CARDNICKNAME=page.locator("//*[@id='cardNickname']");
     this.CARDHOLDERNAME = page.locator("//*[@placeholder='Cardholder name']");
-    this.CARDNUMBER = page.locator("//*[@placeholder='1234 1234 1234 1234']");
+    //this.CARDNUMBER = page.locator("//*[@placeholder='1234 1234 1234 1234']");
+    //this.CARDNUMBER = page.locator("//*[@data-elements-stable-field-name='cardNumber']");
+    this.CARDNUMBER = page.locator("//*[@aria-label='Credit or debit card number']");
+
+    
     this.CARDEXPIRY = page.locator("//*[@id='card-expiry-element']");
     this.CVC = page.locator("//*[@name='cvc']");
     
@@ -46,63 +50,35 @@ exports.Purchasejourney = class Purchasejourney {
     await this.CONTINUEBUTTON.click();
   }
 
-
-
-  async confirmEmail(email = this.generatedEmail) {
-    await this.CONFIRMEMAIL.fill(email);
+   async clickContinueOnDeliveryMethodPage() {
+    
+    await this.CONTINUEBUTTON.click();
   }
 
- async selectTitle() {
-    await this.TITLE.selectOption({ value: 'Mr' });
-}
-
-  async enterFirstName(firstName) {
-    await this.FIRSTNAME.fill(firstName);
+  async enterNickName(){
+    await this.CARDNICKNAME.fill("Test Card nick Name")
   }
 
-  async enterLastName(lastName) {
-    await this.LASTNAME.fill(lastName);
+   async enterCardHolderName(){
+    await this.CARDHOLDERNAME.fill("Test Arun")
   }
 
-  async enterDateOfBirth(dob) {
-    await this.DATEOFBIRTH.fill(dob); // format should match expected format (e.g., "01/01/1990")
+  async enterCardNumber(){
+    await this.CARDNUMBER.click();
+    await this.CARDNUMBER.fill("4000 0003 6000 0006")
   }
 
-  async enterPassword(password) {
-    await this.PASSWORD.fill(password);
+
+  async enterCardExpiry(){
+    await this.CARDEXPIRY.fill("11/29")
   }
 
-  async confirmPassword(password) {
-    await this.CONFIRMPASSWORD.fill(password);
+  async enterCardCVV(){
+    await this.CVC.fill("234")
   }
 
-  async checkIAgree() {
-    await this.IAGREE.check();
-  }
-
-  async clickCreateAccount() {
-    await this.CREATEACCOUNT.click();
-  }
- async clickIntitalCreateAccount() {
-    await this.INTIALCREATEACCOUNT.click();
-  }
-
- async enterEmailInYopmail(page) {
-    const yopmailInput = page.locator("//*[@placeholder='Enter your inbox here']");
-    await yopmailInput.fill(this.generatedEmail);
-    await yopmailInput.press('Enter');
-}
-
- 
-
-  async onepassMailFrame(page) {
-       const onepassMailFrame = await page.frame('ifinbox').locator("(//*[text()='OnePass mobile'])").click();
-   
-  }
-  
-  async onepassInMailFrame(page,value){
-      
-    const onepassInMailFrameLocator = await page.frame('ifmail');
-    const productRow = await onepassInMailFrameLocator.locator('table tr').getByText(`${value}`).first().click();
+  async clickContinueOnPaymentMethodPage() {
+    
+    await this.CONTINUEBUTTON.click();
   }
 };
